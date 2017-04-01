@@ -1,17 +1,10 @@
 def parcel_is_saturated?(parcel_temp, dew_point)
-  if parcel_temp==dew_point
-  	return true
-  else 
-  	return false
-  end
+  parcel_temp==dew_point ? true : false 
 end
 
 def stable?(parcel_temp, ground_temp)
-	if parcel_temp>ground_temp
-		return false
-	elsif parcel_temp<ground_temp
-		return true
-	end
+   return "Neutral" if parcel_temp==ground_temp
+	parcel_temp>ground_temp ? false : true 
 end
 
 
@@ -58,4 +51,4 @@ end
    	end
    puts "Zone #{z_idx}: Env:#{@ground_temp}c, Parcel:#{@parcel_temp}c, Dew Point:#{@dew_point} Saturated:#{parcel_is_saturated?(@parcel_temp, @dew_point)}, Stability:#{stable?(@parcel_temp, @ground_temp)}"
    end
-   puts "Cloud Thickness:#{cloud_thickness} km"
+   puts "Cloud Thickness:#{cloud_thickness-1} km"
